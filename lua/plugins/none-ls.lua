@@ -11,8 +11,12 @@ return {
         extra_args = { "--single-quote", "--trailing-comma", "es5" },
       },
       null_ls.builtins.formatting.stylua,
-      null_ls.builtins.formatting.gofumpt,
-      null_ls.builtins.formatting.goimports,
+      null_ls.builtins.formatting.gofumpt.with {
+        extra_args = { "-extra" },
+      },
+      null_ls.builtins.formatting.goimports.with {
+        extra_args = { "-local", "your-module-prefix" },
+      },
     })
   end,
 }
